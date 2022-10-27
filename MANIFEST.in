@@ -1,0 +1,5 @@
+include docs/requirements.txt
+include requirements.txt
+include environment.yml
+include src/bmmltools/board/graph.html
+

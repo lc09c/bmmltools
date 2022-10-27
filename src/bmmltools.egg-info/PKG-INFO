@@ -1,6 +1,25 @@
-# bmmltools
+Metadata-Version: 2.1
+Name: bmmltools
+Version: 0.2.8
+Summary: BioMaterial Machine Learning tools (bmmltools), package to do machine learning with large binary 3d images
+Home-page: https://gitlab.mpikg.mpg.de/curcuraci/bmmltools
+Author: Luca Curcuraci
+Author-email: Luca.Curcuraci@mpikg.mpg.de
+Project-URL: Bug tracker, https://gitlab.mpikg.mpg.de/curcuraci/bmmltools/-/issues/new
+Project-URL: Documentation, https://bmmltools.readthedocs.io/en/latest/
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
 
-> **Copied from https://gitlab.mpikg.mpg.de/curcuraci/bmmltools**
+# bmmltools
 
 Current version 0.2.8
 

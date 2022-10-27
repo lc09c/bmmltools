@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 650px;
+            height: 1000px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": 0, "label": "input_dataset", "physics": false, "shape": "square", "x": 0, "y": 0}, {"id": 1, "label": "post_pt3d_inference_dataset", "physics": false, "shape": "dot", "x": 100, "y": 150}, {"id": 2, "label": "post_pt3d_training_dataset", "physics": false, "shape": "dot", "x": -100, "y": 300}, {"id": 3, "label": "post_dm_pca_inference_dataset", "physics": false, "shape": "dot", "x": 100, "y": 450}, {"id": 4, "label": "post_ds_inference_dataset", "physics": false, "shape": "dot", "x": -100, "y": 600}, {"id": 5, "label": "raw_labels_dataset", "physics": false, "shape": "dot", "x": 100, "y": 750}]);
+        edges = new vis.DataSet([{"arrows": "to", "from": 0, "label": "PatchTransform3D_1", "smooth": true, "to": 1}, {"arrows": "to", "from": 0, "label": "PatchTransform3D_2", "smooth": true, "to": 2}, {"arrows": "to", "from": 1, "label": "DimensionalReduction_PCA_3", "smooth": true, "to": 3}, {"arrows": "to", "from": 2, "label": "DimensionalReduction_PCA_3", "smooth": true, "to": 3}, {"arrows": "to", "from": 3, "label": "DataStandardization_4", "smooth": true, "to": 4}, {"arrows": "to", "from": 1, "label": "Clusterer_HDBSCAN_5", "smooth": true, "to": 5}, {"arrows": "to", "from": 4, "label": "Clusterer_HDBSCAN_5", "smooth": true, "to": 5}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
